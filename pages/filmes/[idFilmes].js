@@ -1,6 +1,7 @@
 import Pagina from '@/components/Pagina'
 import apiMovies from '@/service/apiMovies'
 import { formatarData, formatarNota, formatarReal } from '@/util/formatarValores'
+import Link from 'next/link'
 import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 
@@ -17,7 +18,7 @@ const Detalhes = ({detalheFilme, atores}) => {
             <Col md={9}>
               <p className="mt-3"><strong>Lançamento: </strong> {formatarData(detalheFilme.release_date)}</p>
               <p className="mt-3"><strong>Orçamento: </strong> {formatarReal(detalheFilme.budget)}</p>
-              <p className="mt-3"><strong>Duração do filme: </strong> {detalheFilme.runtime}</p>
+              <p className="mt-3"><strong>Duração do filme: </strong> {detalheFilme.runtime} min</p>
               <p className="mt-3"><strong>Nota: </strong> {formatarNota(detalheFilme.vote_average)}</p>
               <p className="mt-3"><strong>Sinopse: </strong> {detalheFilme.overview}</p>
               <div>
@@ -36,7 +37,9 @@ const Detalhes = ({detalheFilme, atores}) => {
           <Row md={6}>
             {atores.map(item => (
               <Col title={item.name + ' - ' + item.character} key={item.id}>
-                <Card.Img className='rounded mb-3' variant="top" src={'https://image.tmdb.org/t/p/w500' + item.profile_path}   />
+                <Link href={'/ator/' + item.id}>
+                  <Card.Img className='rounded mb-3' variant="top" src={'https://image.tmdb.org/t/p/w500' + item.profile_path}   /> 
+                </Link>
               </Col>
             ))}
           </Row>

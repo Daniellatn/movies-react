@@ -14,8 +14,11 @@ const Pagina = (props) => {
 
       {props.children}
 
+      {/*
       <Card.Footer style={{width: '100%'}} className="text-dark text-center bg-light position-fixed bottom-0 p-2">Todos os direitos reservados®</Card.Footer>
-    </>
+      */}
+
+      </>
     
 
   )
