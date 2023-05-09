@@ -1,4 +1,5 @@
 import Pagina from '@/components/Pagina'
+import Poster from '@/components/Poster'
 import apiMovies from '@/service/apiMovies'
 import { formatarData } from '@/util/formatarValores'
 import React from 'react'
@@ -20,30 +21,11 @@ const DetalhesAtor = ({detalheAtor, imagemAtor, filmesAtor, TVAtor}) => {
               <p className="mt-3">{detalheAtor.biography}</p>
             </Col>
           </Row>
-          <h2>Imagens</h2>
-          <Row>
-            {imagemAtor.map(item => (
-              <Col md={2} key={item.id}>
-                <Card.Img className='rounded mb-3' variant='top' src={'https://image.tmdb.org/t/p/w500' + item.file_path} />
-              </Col>
-            ))}
-          </Row>
-          <h2>Filmes em que atuou</h2>
-          <Row>
-            {filmesAtor.map(item => (
-              <Col md={2} key={item.id}>
-                <Card.Img className='rounded mb-3' variant='top' src={'https://image.tmdb.org/t/p/w500' + item.poster_path} />
-              </Col>
-            ))}
-          </Row>
-          <h2>Séries em que atuou</h2>
-          <Row>
-            {TVAtor.map(item => (
-              <Col md={2} key={item.id}>
-                <Card.Img className='rounded mb-3' variant='top' src={'https://image.tmdb.org/t/p/w500' + item.poster_path} />
-              </Col>
-            ))}
-          </Row>
+
+          <Poster titulo="Imagens" lista={imagemAtor} imagens="file_path" link="/filmes/"/>
+          <Poster titulo="Filmes" lista={filmesAtor} imagens="poster_path" link="/filmes/"/>
+          <Poster titulo="Séries" lista={TVAtor} imagens="poster_path" link="/series/"/>
+
         </Container>
       </Pagina>
     </>

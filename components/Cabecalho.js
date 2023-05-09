@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap'
 
 const Cabecalho = () => {
   return (
@@ -9,9 +9,14 @@ const Cabecalho = () => {
         <Container>
           <Navbar.Brand href="/">Online Locator</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/filmes">Filmes</Nav.Link>
+            <NavDropdown title="Filmes" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/filmes">Populares</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="/series">Series</Nav.Link>
             <Nav.Link href="/ator">Atores</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

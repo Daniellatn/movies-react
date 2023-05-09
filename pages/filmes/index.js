@@ -9,7 +9,7 @@ const index = ({filmes}) => {
   
   return (
     <>
-      <Pagina titulo="Filmes">
+      <Pagina titulo="Filmes Populares">
         <Container>
           <h2>Conheça os Filmes Populares</h2>
           <Row md={4}>
